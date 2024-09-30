@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DrugNet</title>
+    <style type="text/css">
+      /* Basic Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-image: url("pexels-n-voitkevich-7615574.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        min-height: 100vh;
+
+        font-family: "Poppins", sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 100vh;
+        margin: 0;
+        padding: 20px;
+      }
+
+      /* Container Styles */
+      .container {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        max-width: 400px;
+        width: 100%;
+        border: 1px solid #ccc;
+        margin-right: 60px;
+      }
+
+      .right-container {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        max-width: 400px;
+        width: 100%;
+        border: 1px solid #ccc;
+        margin-left: 60px;
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 2rem;
+        color: #333;
+      }
+
+      h2 {
+        margin-bottom: 15px;
+        font-size: 1.5rem;
+        color: #333;
+      }
+
+      .input-field,
+      .quantity-field,
+      .date-field,
+      .address-field,
+      .description-field {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        background-color: #f9f9f9;
+      }
+
+      .quantity-section,
+      .date-section {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 15px;
+      }
+
+      .quantity-field,
+      .date-field {
+        flex: 1;
+      }
+
+      textarea {
+        resize: none;
+      }
+
+      .button-section {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      button {
+        padding: 10px 20px;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+        transition: transform 0.2s, box-shadow 0.2s;
+        background-color: #333;
+        color: #fff;
+      }
+
+      button:active {
+        transform: scale(0.95);
+      }
+
+      button:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .add-product {
+        margin: 10px 0;
+        padding: 8px 16px;
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+
+      .add-product:active {
+        transform: scale(0.95);
+      }
+
+      .product-section:not(:first-child) {
+        margin-top: 20px;
+        border-top: 1px solid #ccc;
+        padding-top: 20px;
+      }
+
+      input:invalid {
+        border: 2px solid red;
+      }
+
+      input:focus,
+      textarea:focus {
+        outline: 2px solid #4caf50;
+      }
+
+      /* Styles for the right container sections */
+      .section {
+        margin-bottom: 30px;
+      }
+
+      .section-title {
+        font-weight: bold;
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+        text-align: center;
+        color: #333;
+      }
+
+      .section-content {
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        background-color: #f9f9f9;
+        height: 100px; /* Fixed height for demonstration */
+        overflow-y: auto;
+      }
+
+      .product-item {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        background-color: #f1f1f1;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    
+    <div class="container" >
+      <h1>DrugNet</h1>
+      <form id="drug-form">
+        <label for="receiver-name">Receiver's name</label>
+        <input
+          type="text"
+          id="receiver-name"
+          placeholder="Receiver's name"
+          class="input-field"
+          required
+        />
+        <div id="product-container">
+          <!-- Initial product section -->
+          <div class="product-section" id="product-section-1">
+            <label for="product-name-1">Product name</label>
+            <input
+              type="text"
+              id="product-name-1"
+              placeholder="Product name"
+              class="input-field product-name"
+              required
+            />
+            <div class="quantity-section">
+              <input
+                type="number"
+                placeholder="Container quantity"
+                class="quantity-field"
+                required
+              />
+              <select class="quantity-field">
+                <option value="tablets">Tablets</option>
+                <option value="bottles">Bottles</option>
+                <option value="kg">Kilograms</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <button type="button" id="add-product" class="add-product">
+          Add More Products
+        </button>
+        <br />
+        <label for="address">Address</label>
+        <br />
+        <textarea
+          id="address"
+          placeholder="Address"
+          class="input-field address-field"
+          maxlength="250"
+        ></textarea>
+
+        <label for="start-date">Delivery Date</label>
+        <input type="date" id="start-date" class="date-field" />
+
+        <label for="description">Description</label>
+        <textarea
+          id="description"
+          placeholder="Description.."
+          class="input-field description-field"
+        ></textarea>
+
+        <div class="button-section">
+          <button type="button" class="save-draft" id="save-draft">
+            SAVE AS DRAFT
+          </button>
+          <button type="submit" class="post" id="post-button">POST</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Right Container -->
+    <div class="right-container" >
+      <h2>Manage Orders</h2>
+
+      <!-- Product Post Section -->
+      <div class="section">
+        <div class="section-title">Product Post</div>
+        <div class="section-content" id="product-post-section">
+          <!-- Content for Product Post -->
+        </div>
+        
+      </div>
+      
+
+      <!-- Delivered Section -->
+      <div class="section">
+        <div class="section-title">Delivered</div>
+        <div class="section-content" id="delivered-section">
+          <!-- Content for Delivered -->
+        </div>
+      </div>
+
+      <!-- Draft Section -->
+      <div class="section">
+        <div class="section-title">Draft</div>
+        <div class="section-content" id="draft-section">
+          <!-- Content for Draft -->
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let productCount = 1;
+  
+      // Function to create a new product section
+      function createProductSection(id) {
+        const productSection = document.createElement("div");
+        productSection.classList.add("product-section");
+        productSection.id = `product-section-${id}`;
+        productSection.innerHTML = `
+          <label for="product-name-${id}">Product name</label>
+          <input
+            type="text"
+            id="product-name-${id}"
+            placeholder="Product name"
+            class="input-field product-name"
+            required
+          />
+          <div class="quantity-section">
+            <input
+              type="number"
+              placeholder="Container quantity"
+              class="quantity-field"
+              required
+            />
+            <select class="quantity-field">
+              <option value="tablets">Tablets</option>
+              <option value="bottles">Bottles</option>
+              <option value="kg">Kilograms</option>
+            </select>
+          </div>
+        `;
+        return productSection;
+      }
+  
+      // Add event listener for "Add More Products" button
+      document.getElementById("add-product").addEventListener("click", function () {
+        productCount++;
+        const productContainer = document.getElementById("product-container");
+        const newProductSection = createProductSection(productCount);
+        productContainer.appendChild(newProductSection);
+      });
+  
+      // Handle form submission to update the "Manage Orders" section
+      document.getElementById("drug-form").addEventListener("submit", function (event) {
+        event.preventDefault();
+        
+        // Collect form data
+        const receiverName = document.getElementById("receiver-name").value;
+        const products = [];
+        document.querySelectorAll(".product-section").forEach((section) => {
+          const productName = section.querySelector(".product-name").value;
+          const quantity = section.querySelector(".quantity-field").value;
+          const unit = section.querySelector(".quantity-field + select").value;
+          products.push(`${productName}: ${quantity} ${unit}`);
+        });
+        const address = document.getElementById("address").value;
+        const deliveryDate = document.getElementById("start-date").value;
+        const description = document.getElementById("description").value;
+  
+        // Update the "Product Post" section
+        const productPostSection = document.getElementById("product-post-section");
+        productPostSection.innerHTML = `
+          <div><strong>Receiver:</strong> ${receiverName}</div>
+          <div><strong>Products:</strong><ul>${products.map(item => `<li>${item}</li>`).join('')}</ul></div>
+          <div><strong>Address:</strong> ${address}</div>
+          <div><strong>Delivery Date:</strong> ${deliveryDate}</div>
+          <div><strong>Description:</strong> ${description}</div>
+        `;
+        
+        // Reset the form
+        document.getElementById("drug-form").reset();
+        document.getElementById("product-container").innerHTML = '';
+        productCount = 1;
+        const initialProductSection = createProductSection(productCount);
+        document.getElementById("product-container").appendChild(initialProductSection);
+      });
+  
+      // Handle save as draft
+      document.getElementById("save-draft").addEventListener("click", function () {
+        // Collect form data
+        const receiverName = document.getElementById("receiver-name").value;
+        const products = [];
+        document.querySelectorAll(".product-section").forEach((section) => {
+          const productName = section.querySelector(".product-name").value;
+          const quantity = section.querySelector(".quantity-field").value;
+          const unit = section.querySelector(".quantity-field + select").value;
+          products.push({ name: productName, quantity: quantity, unit: unit });
+        });
+        const address = document.getElementById("address").value;
+        const deliveryDate = document.getElementById("start-date").value;
+        const description = document.getElementById("description").value;
+  
+        // Save to local storage
+        localStorage.setItem("draft", JSON.stringify({
+          receiverName: receiverName,
+          products: products,
+          address: address,
+          deliveryDate: deliveryDate,
+          description: description
+        }));
+  
+        // Update the draft section
+        const draftSection = document.getElementById("draft-section");
+        draftSection.innerHTML = `
+          <div><strong>Receiver:</strong> ${receiverName}</div>
+          <div><strong>Products:</strong><ul>${products.map(item => `<li>${item.name}: ${item.quantity} ${item.unit}</li>`).join('')}</ul></div>
+          <div><strong>Address:</strong> ${address}</div>
+          <div><strong>Delivery Date:</strong> ${deliveryDate}</div>
+          <div><strong>Description:</strong> ${description}</div>
+        `;
+      });
+  
+      // Load draft data on page load
+      window.addEventListener("load", function () {
+        const draft = JSON.parse(localStorage.getItem("draft"));
+        if (draft) {
+          document.getElementById("receiver-name").value = draft.receiverName;
+          draft.products.forEach((product, index) => {
+            if (index === 0) {
+              document.querySelector(".product-name").value = product.name;
+              document.querySelector(".quantity-field").value = product.quantity;
+              document.querySelector(".quantity-field + select").value = product.unit;
+            } else {
+              productCount++;
+              const newProductSection = createProductSection(productCount);
+              newProductSection.querySelector(".product-name").value = product.name;
+              newProductSection.querySelector(".quantity-field").value = product.quantity;
+              newProductSection.querySelector(".quantity-field + select").value = product.unit;
+              document.getElementById("product-container").appendChild(newProductSection);
+            }
+          });
+          document.getElementById("address").value = draft.address;
+          document.getElementById("start-date").value = draft.deliveryDate;
+          document.getElementById("description").value = draft.description;
+  
+          // Update the draft section
+          document.getElementById("draft-section").innerHTML = `
+            <div><strong>Receiver:</strong> ${draft.receiverName}</div>
+            <div><strong>Products:</strong><ul>${draft.products.map(item => `<li>${item.name}: ${item.quantity} ${item.unit}</li>`).join('')}</ul></div>
+            <div><strong>Address:</strong> ${draft.address}</div>
+            <div><strong>Delivery Date:</strong> ${draft.deliveryDate}</div>
+            <div><strong>Description:</strong> ${draft.description}</div>
+          `;
+        }
+      });
+    </script>
+  </body>
+</html>

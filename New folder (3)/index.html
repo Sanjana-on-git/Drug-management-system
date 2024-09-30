@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DrugNet</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+          slidesPerView: 1,
+          spaceBetween: 30,
+          loop: true,
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+        });
+      </script>
+      
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-logo">
+            <img src="final_logo-removebg-preview.png" alt="logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#reviews">Testimonials</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="index9.html">Account</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Video Section -->
+    <section id="video-section">
+        <div class="content">
+           
+            <video controls  autoplay>
+                <source src="background-vdo.mp4" type="video/mp4" >
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about">
+        <div class="flex">
+        <div class="card shadow">
+        
+        <div class="content">
+<ul>
+           <h2>About Us</h2>
+            <p><h3>DrugNet Overview</h3>
+              <li>Mission: Revolutionize pharmaceutical tracking, management, and distribution to ensure life-saving medications are available when and where needed. </li>
+                <br>
+             <h3>Vision</h3>
+                <li>Goal: Lead in technological innovation in healthcare, setting the standard for supply chain excellence, and enhancing global healthcare accessibility, safety, and reliability.</li>
+
+                <h3>Mission</h3>
+                <li>Empowerment: Provide tools for effective inventory management, waste reduction, and timely medication delivery.</li>
+                <br>
+                <li>Innovation: Evolve the platform with cutting-edge technologies to adapt to the changing healthcare landscape.</li>
+                <br>
+                <li>Transparency: Enhance visibility and accountability in the supply chain to build trust and improve patient outcomes.</li>
+                <br>
+                <h3>Why Choose Us?</h3>
+                <li>Advanced Technology: Utilizes AI, blockchain, and IoT for real-time tracking, predictive analytics, and secure data management.</li>
+                <br>
+                <li>Customizable Solutions: Adapts to different client needs, from small pharmacies to large distribution networks.</li><br></li>
+                <li>Expert Support: Experienced team in pharmaceuticals, logistics, and technology ensures top-notch service and support.</li><br>
+                <h3>Commitment</h3>
+                <li>Goal: Ensure the right medications reach the right hands at the right time, creating a healthier future through supply chain transformation.</li></p>
+        </ul>
+            </div>
+        
+    </div>
+    <div><img style="height: 600px;position:sticky;"src="img1.png" alt=""></div>
+    </div>
+    </section>
+  
+    
+
+    <!-- Review Section -->
+    <section id="reviews">
+        <div class="content">
+           
+            <div class="testimonial-container">
+                <i class="fas fa-chevron-left nav-arrows left" onclick="prevSlide()"></i>
+                
+                <div class="testimonial-item active">
+                    <img src="human icon.png" alt="Portrait of a person">
+                    <div class="testimonial-text">
+                        "The website offers an extensive selection of medicines and supplies, making it a one-stop shop for all our needs. The detailed product descriptions and specifications help ensure we are ordering exactly what we need."
+                    </div>
+                    <div class="testimonial-author">Saatvik Nagpal</div>
+                    <div class="testimonial-role">Founder, EasyGrid</div>
+                </div>
+                
+                <div class="testimonial-item">
+                    <img src="human icon.png" alt="Portrait of a person">
+                    <div class="testimonial-text">
+                        "Great service and fast delivery. The website is easy to navigate and the customer support is very helpful."
+                    </div>
+                    <div class="testimonial-author">John Doe</div>
+                    <div class="testimonial-role">CEO, TechCorp</div>
+                </div>
+                
+                <div class="testimonial-item">
+                    <img src="human icon.png" alt="Portrait of a person" style="overflow: hidden;">
+                    <div class="testimonial-text">
+                        "I found everything I needed in one place. The prices are competitive and the quality is excellent."
+                    </div>
+                    <div class="testimonial-author">Jane Smith</div>
+                    <div class="testimonial-role">Manager, HealthPlus</div>
+                </div>
+                
+                <i class="fas fa-chevron-right nav-arrows right" onclick="nextSlide()"></i>
+                
+                <div class="dots">
+                    <div class="dot active" onclick="currentSlide(0)"></div>
+                    <div class="dot" onclick="currentSlide(1)"></div>
+                    <div class="dot" onclick="currentSlide(2)"></div>
+                </div>
+            </div>
+       
+            <script>
+                let slideIndex = 0;
+                const slides = document.querySelectorAll('.testimonial-item');
+                const dots = document.querySelectorAll('.dot');
+        
+                function showSlide(index) {
+                    slides.forEach((slide, i) => {
+                        slide.classList.toggle('active', i === index);
+                        dots[i].classList.toggle('active', i === index);
+                    });
+                }
+        
+                function nextSlide() {
+                    slideIndex = (slideIndex + 1) % slides.length;
+                    showSlide(slideIndex);
+                }
+        
+                function prevSlide() {
+                    slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+                    showSlide(slideIndex);
+                }
+        
+                function currentSlide(index) {
+                    slideIndex = index;
+                    showSlide(slideIndex);
+                }
+        
+                setInterval(nextSlide, 5000); // Change slide every 5 seconds
+            </script>
+              </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="content">
+            <h2>Contact Us</h2>
+            <p>Email: info@drugnet.com</p>
+            <p>Phone: +1234567890</p>
+            <p>Address: 101/09, XYZ Road, New Delhi</p>
+            <div class="social-links">
+                <a href="https://www.instagram.com/"><img src="fb.png" alt="" style="height: 30px;"></a>
+                <a href="https://www.facebook.com/"><img src="insta.png" alt=""style="height: 30px;"></a>
+                <a href="https://www.twitter.com/"><img src="twitter.png" alt=""style="height: 30px;"></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

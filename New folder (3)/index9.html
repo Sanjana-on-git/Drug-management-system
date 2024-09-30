@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style9.css" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="script9.js" defer></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <nav class="nav">
+        <div class="nav-logo">
+          <img src="final_logo-removebg-preview.png" alt="">
+        </div>
+        <div class="nav-menu" id="navMenu">
+          <ul>
+            <li><a href="index.html" class="link">Home</a></li>
+            <li><a href="index.html" class="link">About us</a></li>
+            <li><a href="index.html" class="link">Contact US</a></li>
+          </ul>
+        </div>
+        <div class="nav-button">
+          <button class="btn sign-btn" id="loginBtn" onclick="showSignIn()">
+            Sign In
+          </button>
+          <button class="btn up-btn" id="registerBtn" onclick="showSignUp()">
+            Sign Up
+          </button>
+        </div>
+      </nav>
+
+      <!----------------------------- Sign In Section ----------------------------------->
+      <div class="form-container" id="signInContainer" >
+        <div class="form-box">
+          <section>
+            <div class="login-container">
+              <div class="top">
+                <span>Don't have an account? <a href="#" onclick="showSignUp()">Sign Up</a></span>
+                <header>Sign In</header>
+              </div>
+              <div class="input-box">
+                <input type="text" class="input-field" placeholder="User ID" />
+                <i class="fa-solid fa-user"></i>
+              </div>
+              <div class="input-box">
+                <input type="password" class="input-field" placeholder="Password" />
+                <i class="fa-solid fa-lock"></i>
+              </div>
+              <div class="input-box">
+                <input type="submit" class="submit" value="Sign In" />
+              </div>
+              <div class="two-col">
+                <div class="one">
+                  <input type="checkbox" id="login-check" />
+                  <label for="login-check">Remember Me</label>
+                </div>
+                <div class="two">
+                  <label><a href="#">Forgot password?</a></label>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <!----------------------------- Sign Up Section ----------------------------------->
+      <div class="form-container" id="signUpContainer" style="display: none;">
+        <div class="form-box">
+          <section>
+            <div class="register-container">
+              <div class="top">
+                <span>Have an account? <a href="#" onclick="showSignIn()">Login</a></span>
+                <header>Sign Up - Institute</header>
+              </div>
+              <div class="two-forms">
+                <div class="input-box">
+                  <input type="text" class="input-field" placeholder="Username" />
+                  <i class="fa-solid fa-user"></i>
+                </div>
+                <div class="input-box">
+                  <input type="password" class="input-field" placeholder="Password" />
+                  <i class="fa-solid fa-user"></i>
+                </div>
+              </div>
+              <div class="input-box">
+                <input type="email" class="input-field" placeholder="Email" />
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <div class="input-box">
+                <input type="text" class="input-field" placeholder="Institute name" />
+                <i class="fa-solid fa-lock"></i>
+              </div>
+              <div class="input-box">
+                <input type="text" class="input-field" placeholder="Address" />
+                <i class="fa-solid fa-lock"></i>
+              </div>
+              <div class="input-box">
+                <input type="text" class="input-field" placeholder="GST No." />
+                <i class="fa-solid fa-lock"></i>
+              </div>
+              <div class="input-box">
+                <a href="index18.html"><input type="submit" class="submit" value="Register" /></a>
+              </div>
+              <div class="two-col">
+                <div class="one">
+                  <input type="checkbox" id="register-check" />
+                  <label for="register-check">Remember Me</label>
+                </div>
+                <div class="two">
+                  <label><a href="#">Terms & conditions</a></label>
+                </div>
+              </div>
+            </div>
+            <div class="register-container">
+                <div class="top">
+                  
+                  <header>Sign Up - Distributor</header>
+                </div>
+                <div class="two-forms">
+                  <div class="input-box">
+                    <input type="text" class="input-field" placeholder="Username" />
+                    <i class="fa-solid fa-user"></i>
+                  </div>
+                  <div class="input-box">
+                    <input type="password" class="input-field" placeholder="Password" />
+                    <i class="fa-solid fa-user"></i>
+                  </div>
+                </div>
+                <div class="input-box">
+                  <input type="email" class="input-field" placeholder="Email" />
+                  <i class="fa-solid fa-envelope"></i>
+                </div>
+                <div class="input-box">
+                  <input type="text" class="input-field" placeholder="Distributor's name" />
+                  <i class="fa-solid fa-lock"></i>
+                </div>
+                <div class="input-box">
+                  <input type="text" class="input-field" placeholder="Address" />
+                  <i class="fa-solid fa-lock"></i>
+                </div>
+                <div class="input-box">
+                  <input type="text" class="input-field" placeholder="GST No." />
+                  <i class="fa-solid fa-lock"></i>
+                </div>
+                <div class="input-box">
+                  <a href="index19.html"><input type="submit" class="submit" value="Register" /></a>
+                </div>
+                <div class="two-col">
+                  <div class="one">
+                    <input type="checkbox" id="register-check" />
+                    <label for="register-check">Remember Me</label>
+                  </div>
+                  <div class="two">
+                    <label><a href="#">Terms & conditions</a></label>
+                  </div>
+                </div>
+              </div>
+          </section>
+        </div>
+      </div>
+      <!------------------------------SIGN-UP AS DISTRIBUTOR----------------------- -->
+    </div>
+  </body>
+</html>
